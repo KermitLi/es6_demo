@@ -126,9 +126,22 @@ var f11 = function(){}
 console.log(f11.name);//f11  在es5中显示为空串，因为f11是一个匿名函数赋值的
 
 //箭头函数
+a = 1;
 var arrow_func = ()=>{console.log(this.a)};
-arrow_func.apply({a:2});//undefined  箭头函数中的this引用其外部函数调用时的this对象，并不会改变  适用于回调函数(事件处理)
+arrow_func.apply({a:2});//undefined(在我自己的编辑器，在浏览器里是1，此时的父作用域是全局作用域，所以this是全局对象)  箭头函数中的this引用其外部函数调用时的this对象（全局对象），并不会改变  适用于回调函数(事件处理)
 
+function parent_scope(){
 
+    function print(){
+        console.log(this.a);
+    }
+
+    var print_arrow = ()=>{console.log(this.a)};
+
+    print();//1  this代表全局对象
+    print_arrow();// 4 this代笔{a:4}这个对象
+}
+
+parent_scope.apply({a:4});
 
 
