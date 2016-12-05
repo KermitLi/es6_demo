@@ -8,7 +8,7 @@
             "name": "Launch Program",
             "type": "node2",
             "request": "launch",
-            "program": "${workspaceRoot}/ProxyAndReflect.js",
+            "program": "${workspaceRoot}/SetAndMap.js",
             "cwd": "${workspaceRoot}"
         },
         {
